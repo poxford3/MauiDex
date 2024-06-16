@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:m="clr-namespace:MauiDex.Model"
+             xmlns:vm="clr-namespace:MauiDex.ViewModels"
+             x:Class="MauiDex.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Image
+                Source="dotnet_bot.png"
+                HeightRequest="185"
+                Aspect="AspectFit"
+                SemanticProperties.Description="dot net bot in a race car number eight" />
+
+            <FlexLayout
+                JustifyContent="SpaceBetween"
+                Direction="Row"
+                >
+                <Button
+                    x:Name="poke_settings"
+                    Text="Settings"
+                    Clicked="SettingsClick"
+                    SemanticProperties.Hint="Click to view settings!"
+                    />
+
+                <Label 
+                    Text="MauiDex"
+                    Style="{StaticResource Headline}"
+                    SemanticProperties.HeadingLevel="Level1"
+                    />
+
+                <Button
+                    x:Name="favorites"
+                    Text="Favorites"
+                    Clicked="FavoriteClick"
+                    SemanticProperties.Hint="Click to view settings!"
+                    />
+            </FlexLayout>
+
+            <SearchBar 
+                Placeholder="Search for your favorite Pokemon!"
+                TextChanged="OnSearchChange"
+                />
+
+            <CollectionView ItemsSource="{Binding PLI_Main}">
+                <!--<CollectionView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Pikachu</x:String>
+                        <x:String>bulba</x:String>
+                        <x:String>charmander</x:String>
+                        <x:String>squirtle</x:String>
+                    </x:Array>
+                </CollectionView.ItemsSource>-->
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="m:PokeListItem">
+                        <Grid Padding="0,5">
+                            <Frame>
+                                <Label
+                                    Text="ay"
+                                    FontSize="24"
+                                    />
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

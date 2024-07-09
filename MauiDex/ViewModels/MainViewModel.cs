@@ -1,16 +1,13 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using MauiDex.Model;
+﻿using MauiDex.Model;
 using MauiDex.Services;
-using System.Collections.ObjectModel;
-using System.Security.Cryptography.X509Certificates;
 
 namespace MauiDex.ViewModels
 {
     public partial class MainViewModel : BaseViewModel
     {
-        private readonly PokeAPICall _pokeAPICall;
+        private readonly IPokeAPICall _pokeAPICall;
 
-        public MainViewModel(PokeAPICall pokeAPICall)
+        public MainViewModel(IPokeAPICall pokeAPICall)
         {
             _pokeAPICall = pokeAPICall;
         }
@@ -22,8 +19,8 @@ namespace MauiDex.ViewModels
 
         public async Task<PokeAPICall> LoadDataAsync()
         {
-            PokeAPICall pokeAPICall = new PokeAPICall();
-            await pokeAPICall.GetPokemonByGenAsync(1);
+            PokeAPICall pokeAPICall = new();
+            PLI = await pokeAPICall.GetPokemonByGenAsync(1);
             return pokeAPICall;
         }
 

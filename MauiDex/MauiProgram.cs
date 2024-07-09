@@ -30,6 +30,11 @@ namespace MauiDex
             builder.Services.AddSingleton<MainViewModel>();
 
             // pages
+            // use AddSingleton when creating pages that are static in their creation
+            // i.e. main home page, settings, etc
+            //
+            // use AddTransient when creating pages that are created dynamically
+            // i.e. details pages, item views, etc
             builder.Services.AddSingleton<MainPage>();
 
             return builder.Build();

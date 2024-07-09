@@ -14,22 +14,23 @@ namespace MauiDex
             InitializeComponent();
             BindingContext = MainViewModel = mainViewModel;
             MainViewModel = mainViewModel;
-            // StartTest();
+
+            StartTest();
         }
 
-        //private async void StartTest()
-        //{
-        //    if (Application.Current != null)
-        //    {
-        //        PokeAPICall pokeAPICall = await MainViewModel.LoadDataAsync();
-        //        PokeAPICall PLI_Main = pokeAPICall;
-        //    }
-        //}
+        private async void StartTest()
+        {
+            if (Application.Current != null)
+            {
+                PokeAPICall pokeAPICall = await MainViewModel.LoadDataAsync();
+                System.Diagnostics.Debug.WriteLine("in start test", pokeAPICall);
+            }
+        }
 
         private async void FavoriteClick(object sender, EventArgs e)
         {
             Console.WriteLine("OnStart");
-            System.Diagnostics.Debug.WriteLine("onstart sys");
+            System.Diagnostics.Debug.WriteLine("favorite button");
 
             if (Application.Current != null)
             {

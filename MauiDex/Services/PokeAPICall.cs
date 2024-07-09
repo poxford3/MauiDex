@@ -12,9 +12,9 @@ namespace MauiDex.Services
 
         public PokeListItem PLI { get; private set; }
 
-        public PokeAPICall() // (HttpClient httpClient) // old
+        // Constructor, called on startup
+        public PokeAPICall()
         {
-            //this.httpClient = httpClient;
             _httpClient = new HttpClient();
             _serializerOptions = new JsonSerializerOptions
             {
@@ -43,7 +43,7 @@ namespace MauiDex.Services
                 Debug.WriteLine(@"\tERROR {0}", ex.Message);
             }
 
-            System.Diagnostics.Debug.WriteLine("gen async " + PLI.ToString());
+            System.Diagnostics.Debug.WriteLine("gen async " + PLI.PokemonSpecies[0].Name.ToString());
 
             return PLI;
         }
